@@ -4,7 +4,7 @@ const User = require('../models/userSchema');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-userRoutes.post('/singup',async (req,res) => {
+userRoutes.post('/signup',async (req,res) => {
     const {name,email,password} = req.body;
     if(!email || !name || !password){
         res.status(400).send({message:"Please fill all the details"});

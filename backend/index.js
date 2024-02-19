@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const cors = require('cors')
 const userRoutes = require('./src/routes/userRoutes')
 
 //db connect
@@ -15,9 +16,9 @@ const dbConnection = async () => {
 }
 
 dbConnection();
-
+app.use(cors());
 app.use(userRoutes);
 
-app.listen(3000,()=>{
+app.listen(3001,()=>{
 console.log("server started..");
 });

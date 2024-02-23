@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import PersonIcon from "@mui/icons-material/Person";
 import PasswordIcon from "@mui/icons-material/Password";
 import EmailIcon from "@mui/icons-material/Email";
@@ -19,6 +20,7 @@ const Register = () => {
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
   };
+  
   const submitDeatils = async (e) => {
     e.preventDefault();
     const res = await axios.post("http://localhost:3001/signup", {
@@ -28,9 +30,11 @@ const Register = () => {
     });
     if (res.status === 200) {
       navigate("/login");
+      window.alert("Successfully registered")
     }
-    console.log(res);
+    // console.log(res);
   };
+
   return (
     <div className="flex flex-col justify-center items-center mt-16 w-full overflow-hidden">
       <div className="flex flex-col justify-center items-center">
